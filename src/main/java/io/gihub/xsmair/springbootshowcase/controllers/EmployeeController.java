@@ -21,7 +21,7 @@ public class EmployeeController {
         List<EmployeeDto> mappedEmployees = new ArrayList<>();
         List<Employee> e = employeeService.getEmployees();
         for (Employee employee : e) {
-            EmployeeDto employeeDto = new EmployeeDto(employee.getFirstName(), employee.getLastName(), employee.getCreated());
+            EmployeeDto employeeDto = new EmployeeDto(employee);
             mappedEmployees.add(employeeDto);
         }
         return mappedEmployees;
@@ -33,6 +33,6 @@ public class EmployeeController {
         employee.setFirstName(employeeDto.getFirstName());
         employee.setLastName(employeeDto.getLastName());
         Employee savedEntity = employeeService.saveEmployee(employee);
-        return new EmployeeDto(savedEntity.getFirstName(), savedEntity.getLastName(), savedEntity.getCreated());
+        return new EmployeeDto(savedEntity);
     }
 }

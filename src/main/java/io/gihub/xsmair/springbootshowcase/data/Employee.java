@@ -1,18 +1,13 @@
 package io.gihub.xsmair.springbootshowcase.data;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Employee {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -24,6 +19,8 @@ public class Employee {
     private LocalDateTime created;
 
     private LocalDateTime updated;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Employee() {
@@ -62,6 +59,14 @@ public class Employee {
     }
 
     public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Employee(String firstName, String lastName, LocalDateTime created, LocalDateTime updated, Long id) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.created = created;
+        this.updated = updated;
         this.id = id;
     }
 }

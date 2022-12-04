@@ -1,5 +1,7 @@
 package io.gihub.xsmair.springbootshowcase.dtos;
 
+import io.gihub.xsmair.springbootshowcase.data.Employee;
+
 import java.time.LocalDateTime;
 
 public class EmployeeDto {
@@ -33,6 +35,15 @@ public class EmployeeDto {
 
     public void setCreated(LocalDateTime created) {
         this.created = created;
+    }
+
+    public EmployeeDto(Employee employee) {
+        this.firstName = employee.getFirstName();
+        this.lastName = employee.getLastName();
+        this.created = employee.getCreated();
+    }
+
+    public EmployeeDto() {
     }
 
     public EmployeeDto(String firstName, String lastName, LocalDateTime created) {
